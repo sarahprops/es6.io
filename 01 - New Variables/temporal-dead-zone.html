@@ -6,8 +6,32 @@
 </head>
 <body>
 <script>
+  /*
+  if we do it the traditional way
+  const pizza = 'Deep Dish 🍕🍕🍕';
+  console.log(pizza);
+  then we get the variable and all is right in the world.
+
+  but what happens if we do it BACKWARDS???
+  my guess: undefined this is right byah, because the browser can see its created but not its value because it comes later
+  if you change to const, it doesnt work at all because const is strict, u cannot access a variable before it is defined
+  */
   console.log(pizza);
   const pizza = 'Deep Dish 🍕🍕🍕';
+
+  /*
+  HOT TAKE IS VAR DEAD??????
+
+  use const by default
+  only use let is rebinding is need (you need to update)
+  and var should not be used
+
+  orrrrr
+
+  use var for top level vars that are shared across many (large) scopes
+  let for smaller scopes
+  only use const if you are sure that a let doesn't need to be updated later
+  */
 
 </script>
 </body>

@@ -6,13 +6,28 @@
 </head>
 <body>
 <script>
+  /*
+  function that runs itself that creates a scope where nothing leaks 'IFFY'
+  don't want global within the window, like name. properties that exist within the browser
+  but don't nes. mean they're something. there is a function to scope things like this
+  (function() {
+    var name = 'wes'
+  })
+  however let and const don't even need the muck cause it blocks to the block
+  */
   {
     const name = 'wes';
     console.log(name);
   }
 
+  /*
+  base problem if you use var, after this function runs, you are stuck with a property i
+  that has data and stuff associated with it, outside of the function, cause we just wnat a placeholder value. maybe we need it later or something after a second, all of them are 10 because of the var
+  BUT if we change var to let, then the let scopes to the block, we are getting it as it runs each time. cannot use const, bc you cant keep updating it
+  */
   for(let i = 0; i < 10; i++) {
     console.log(i);
+    // we want this to run on a delay
     setTimeout(function() {
       console.log('The number is ' + i);
     },1000);

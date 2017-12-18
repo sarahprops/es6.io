@@ -6,15 +6,24 @@
 </head>
 <body>
 <script>
+  /*
+  - Var can be redefined within the same scope, whereas the others cannot. They can be updated but not redefined
+  */
   const key = 'abc123';
   let points = 50;
   let winner = false;
-
+  /*
+  - Const cannot be updated, let can be updated
+  - However if an object, the items within can be updated
+  - so person cannot be updated, but properties can
+  - i.e. person.age = 29 will work
+  */
   const person = {
     name: 'Wes',
     age: 28
   }
 
+  // this is not nes. es6 but freezes the property from being updated
   const wes = Object.freeze(person);
 
 </script>
