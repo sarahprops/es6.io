@@ -6,14 +6,25 @@
 </head>
 <body>
 <script>
-
+/*
+  say you are given data in a format you don't really like but you're stuck with it
+  ideally the below data would be in an object with all the data
+  we want to map it into that!
+*/
 const race = '100m Dash';
 const winners = ['Hunter Gath', 'Singa Song', 'Imda Bos'];
 
+// const win = winners.map((winner, i) => {name: winner, race: race, place: i});
+// above is OG but it errors, why? because if you take off {} its implicit, so how do you return a literal value while having curlys cause is object?, wrap in paran to show that its an object literal, not a function block
+// console.table!!!!! WOAH LIFE CHANGED
+// index is 0, so have to offset by 1
+// race: race looks weird, so we can just say race since var and prop are the same
 const win = winners.map((winner, i) => ({name: winner, race, place: i + 1}));
 
 const ages = [23,62,45,234,2,62,234,62,34];
 
+// filter this list by people who are older than 60
+// const old = ages.filter(age => if(age > 60)) blah blah, but we no longer have to do that, filter only returns if true if the statement is true
 const old = ages.filter(age => age >= 60);
 console.log(old);
 

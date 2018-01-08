@@ -60,12 +60,57 @@
     </div>
   </div>
 
+  <!--
+  the most important part is that this does not get rebound. but what does that even mean?
+  example: have a box that adds a class opening that animates open and then adds opened to bring in some words
+  -->
   <script>
+    // get the box. is const cause never changes, is always the box
     const box = document.querySelector('.box');
+    // this is a function not arrow, why?
     box.addEventListener('click', function() {
+      /*
+        console.log(this);
+       returns <div class="box"> what we clicked
+       if we switch to arrow function, this returns window because arrow function the value of this is not rebound based on click, its the parent scope. whats the parent scope of this? it's the window! because its not bound.
+       don't willy nilly do arrow functions!!
+       so in this case, we need function to reference the box that was clicked
+        this.classList.toggle('opening');
+        setTimeout(function() { this.classList.toggle('open');});
+       that returns error of undefined
+        console.log(this.classList);
+       gives us nothing
+        console.log(this);
+       returns window, wait what???
+       it is because we have entered an additional function that is not bound to this
+       ways around:
+        var self = this;
+        setTimeout(function() { self.classList.toggle('open');});
+       which works but isnt the greatest, what we need to do is make it an arrow function!!
+       arrow functions inherit parents, so since we set this above, we can use it elsewise
+      */
+
+      /* MY TRY!
+        const box = document.querySelector('.box');
+        box.addEventListener('click', function() {
+          // use this sarah not the original call
+          this.classList.toggle('opening');
+          // empty parans since no arguments needed
+          setTimeout(() => {
+            this.classList.toggle('open');
+          }, 500);
+        });
+      */
+
+      // below is all the fancy stuff to make it look really nice since as it works, is like all things, it works but it's weird on close its backwards
+      // problem is opening 1st then open 2nd, but want reverse on the close
+
+      // set our vars here
       let first = 'opening';
       let second = 'open';
 
+      // this says if the class has our first var, means it is already in the process of opening or is open, so this is how you switch variables! that way they will close in reverse!
+      // this is super handy
       if(this.classList.contains(first)) {
         [first, second] = [second, first];
       }
