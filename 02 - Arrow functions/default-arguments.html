@@ -6,6 +6,26 @@
 </head>
 <body>
 <script>
+  /*
+    default values are here!
+    we want the total, the tax and the tip then return total
+
+    the old way
+
+    function calculateBill(total, tax, tip) {
+      return total + (total * tax) + (total * tip);
+    }
+
+    const totalBill = calculateBill(100, 0.13, 0.15);
+    console.log(totalBill);
+
+    but happens if we want to assume that the tax is 13% and tip is 15%?
+    before we would have to do is set up all this mumbo jumbo that says if it is undefined then have a default value
+    or could do tax = tax || 0.13
+
+    below: this means that if nothing is passed in, there is a default value
+    how do you leave a variable off? tax doesnt change but tip does, just pass in undefined!
+  */
   function calculateBill(total, tax = 0.13, tip = 0.15) {
     return total + (total * tax) + (total * tip);
   }
