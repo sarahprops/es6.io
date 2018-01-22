@@ -32,16 +32,67 @@
 <script>
 
   // Select all the list items on the page and convert to array
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
+  // I would grab by attribute, or something more specific
+  // if the data set was different
+
+  const arrayOfItems = Array.from(document.querySelectorAll('li'));
+  // console.log(arrayOfItems);
 
   // Filter for only the elements that contain the word 'flexbox'
 
+  // const filteredArrayOfItems = arrayOfItems.filter(word => word == 'Flexbox');
+  // console.log(filteredArrayOfItems);
+  // that doesn't work. we need to include it
+
+  // const includesArrayOfItems = arrayOfItems.includes('Flexbox');
+  // console.log(includesArrayOfItems);
+  // hmmm thats not right either, maybe we should combine them?
+  // TIL about "textContent"
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
+  // https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent
+  const filteredArrayOfItems = arrayOfItems.filter(item => item.textContent.includes('Flexbox'));
+  //console.log(filteredArrayOfItems);
+
   // map down to a list of time strings
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+  // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset
+  const mappedFilteredArray = filteredArrayOfItems.map(item => item.dataset.time);
+  //console.log(mappedFilteredArray);
 
   // map to an array of seconds
+  // https://stackoverflow.com/questions/9640266/convert-hhmmss-string-to-seconds-only-in-javascript
+  const mappedArrayTwo = mappedFilteredArray.map(item => {
+    // split our number at the colon
+    let splitter = item.split(':');
+    // first side is minutes * 60 for seconds, and then add to the existing seconds
+    let secondCounter = (+splitter[0]) * 60 + (+splitter[1]);
+    //console.log(splitter);
+    //console.log(secondCounter);
+    // return our number!
+    return secondCounter;
+  });
+  //console.log(mappedArrayTwo);
 
   // reduce to get total
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+  const reducedTotal = mappedArrayTwo.reduce((total, current) => total + current);
+  console.log(`your total from all of that math is ${reducedTotal}`);
 
   // 🔥 This can also be done in a single .reduce(), but we're practicing arrow functions here, so chain them!
+  // OK LETS MAKE THIS LOVELIER
+  const arrayOfItems2 = Array.from(document.querySelectorAll('li'));
+  const changedResultArray = arrayOfItems2
+    .filter(item => item.textContent.includes('Flexbox'))
+    .map(item => item.dataset.time)
+    .map(item => {
+      let splitter = item.split(':');
+      let secondCounter = (+splitter[0]) * 60 + (+splitter[1]);
+      return secondCounter;
+    })
+    .reduce((total, current) => total + current);
+   console.log(`omg the chain works!!!! your total is ${changedResultArray}`);
 
 </script>
 </body>
