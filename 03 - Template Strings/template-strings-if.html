@@ -6,6 +6,9 @@
 </head>
 <body>
 <script>
+  // ok so we got this data
+  // it always has a name and an artist, but SOMETIMES has a featuring
+  // if it has a feature, we need to include it
   const song = {
     name: 'Dying to live',
     artist: 'Tupac',
@@ -20,6 +23,9 @@
       </p>
     </div>
   `;
+
+  //(Featuring ${song.featuring}) works well, if there is a featuring and then great, but if not we get undefined
+  // ternary operator if this then this if not nothing
 
   document.body.innerHTML = markup;
 

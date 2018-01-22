@@ -12,6 +12,10 @@
     { name: 'Sunny', age: 1 }
   ];
 
+  // can loop within the markup!!
+  // use your arrow map function, for each dog, we want to return a string
+  // getting a tempalte string in a template string
+  // templatestringception!
   const markup = `
     <ul class="dogs">
       ${dogs.map(dog => `
@@ -22,6 +26,7 @@
         </li>`).join('')}
     </ul>
   `;
+  // adding the .join since it is returning a comma and we dont want that, this joins it together to be a fluid item!
   document.body.innerHTML = markup;
 
 </script>
