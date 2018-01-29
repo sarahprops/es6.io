@@ -6,6 +6,8 @@
 </head>
 <body>
 <script>
+  // function in destructiring
+  // convert currency, returns obj of converted amount
   function convertCurrency(amount) {
     const converted = {
       USD: amount * 0.76,
@@ -16,12 +18,27 @@
     return converted;
   }
 
+  //const hundo = convertCurrency(100);
+  // returns array
+  //console.log(hundo);
+  // returns individual number
+  //console.log(hundo.MEX);
+  // destructure when it comes back
+  const {USD, GPB, AUD, MEX} = convertCurrency(100);
+  console.log(USD, GPB, AUD, MEX);
+  // order doesnt matter since you are destructing an object, if you only need two, you just put in USD / AUD and the others are thrown out
+
+  // make this order indeoendent, wrap the args in curly brackets, when pass in an object, we destructer them into the three vars
   function tipCalc({ total = 100, tip = 0.15, tax = 0.13 } = {}) {
     return total + (tip * total) + (tax * total);
   }
 
+  // can leave off things we dont need
+  // or put them in any order
   const bill = tipCalc({ tip: 0.20, total: 200 });
   console.log(bill);
+
+  // if you pass in nothing, if default total is 100, just run tip calc, because it cannot match against nothing. have to have at least something for it to destructor against, but you can give it a default of blank, which will allow you to run the function
 
 </script>
 </body>
