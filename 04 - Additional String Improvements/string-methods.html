@@ -7,6 +7,7 @@
 <body>
 
 <script>
+  // react for beginners
 const course = 'RFB2';
 const flightNumber = '20-AC2018-jz';
 const accountNumber = '825242631RT0001';
@@ -14,22 +15,35 @@ const accountNumber = '825242631RT0001';
 const make = 'BMW';
 const model = 'x5';
 const colour = 'Royal Blue';
+// 4 new methods for readable code, and reducing need for regex
+
 
 // .startsWith()
+// course.startsWith('RFB') is case sensative
+// flightNumber.startsWith('AC', 3) start after 3 charachters
 
 // .endsWith()
+// flightNumber.endsWith('jz');
+// accountNumber.endsWith('RT', 11) only take into consideration first 11 characters
 
 // .includes()
+// check if string is within flightNumber.includes('AC') again not case sensitive
 
 // .repeat()
+// 'meow'.repeat(10); // why is this useful?
+// say you want to left alight the items
 
 function leftPad(str, length = 20) {
   return `→ ${' '.repeat(length - str.length)}${str}`;
 }
 
+// huh this makes it right align in the console.
 console.log(leftPad(make));
 console.log(leftPad(model));
 console.log(leftPad(colour));
+
+// can take a es6 string
+// `${'emoji' * 5}`.repeat(10) + 'Batman'; = NaNNaNNaNNaNNaNNaNNaNNaNNaN Batman lol
 
 
 </script>

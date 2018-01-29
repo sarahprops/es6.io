@@ -18,8 +18,12 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/0.8.2/purify.min.js"></script>
 <script>
+  // we need to make sure no one is trying to hack things in here
+  // dompurify is a library for sanitization of data passed through
   function sanitize(strings, ...values) {
+    // this is dirty cause it has the nasty stuff
     const dirty = strings.reduce((prev, next, i) => `${prev}${next}${values[i] || ''}`, '');
+    // then we sanitize the dirty html
     return DOMPurify.sanitize(dirty);
   }
 
@@ -32,6 +36,7 @@
   `;
 
   const bio = document.querySelector('.bio');
+  // could do it right here but did it for the template tag
   bio.innerHTML = html;
 </script>
 </body>

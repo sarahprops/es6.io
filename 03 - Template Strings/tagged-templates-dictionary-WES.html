@@ -23,13 +23,18 @@
   };
 
   function addAbbreviations(strings, ...values) {
+    // i want a new arary of the mapped values,
+    // if dictonary wrap them in abbrv
     const abbreviated = values.map(value => {
       if(dict[value]) {
         return `<abbr title="${dict[value]}">${value}</abbr>`;
       }
+      // not in the dictorionary
       return value;
     });
 
+    // dont need to add spaces because the string has spaces in it
+    // make sure like before to add the if empty blank string because of the additional string
     return strings.reduce((sentence, string, i) => {
       return `${sentence}${string}${abbreviated[i] || ''}`;
     }, '');
