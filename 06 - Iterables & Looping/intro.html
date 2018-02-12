@@ -6,6 +6,9 @@
 </head>
 <body>
 <script>
+  // iterable is anything that can be looped over
+
+  // this suffles it all up
   /* eslint-disable */
    Array.prototype.shuffle = function() {
      var i = this.length, j, temp;
@@ -23,20 +26,25 @@
 
   cuts.shop = 'MM MEats';
 
-  // for (let i = 0; i < cuts.length; i++) {
-  //   console.log(cuts[i]);
-  // }
+  for (let i = 0; i < cuts.length; i++) {
+    console.log(cuts[i]);
+  }
+  // downside, that its confusing and doesnt read well
 
-  // cuts.forEach((cut) => {
-  //   console.log(cut);
-  //   if(cut === 'Brisket') {
-  //     continue;
-  //   }
-  // });
+  cuts.forEach((cut) => {
+     console.log(cut);
+     if(cut === 'Brisket') {
+        // break;
+       continue;
+     }
+  });
+  // cannot abort the loop, can't skip any
 
-  // for (const index in cuts) {
-  //   console.log(cuts[index]);
-  // }
+  for (const index in cuts) {
+    console.log(cuts[index]);
+  }
+  // gives the index of the item
+  // this loops through everything INCLUDING any fucntions passed in to change things
 
   for (const cut of cuts) {
     if(cut === 'Brisket') {
@@ -44,6 +52,9 @@
     }
     console.log(cut);
   }
+  // you can use this for whatever ya want!
+  // it is agnostic to only the loop
+  // uses break and continue correctly
 
 </script>
 </body>

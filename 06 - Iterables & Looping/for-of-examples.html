@@ -18,25 +18,41 @@
 <script>
   const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
 
-  // for (const [i, cut] of cuts.entries()) {
-  //   console.log(`${cut} is the ${i + 1} item`);
-  // }
+  //cuts.entires();
+  // const meat = cuts.entries();
+  // meat.next(); done = false, cause there is more
+  // value = our value and it's index
 
-  // function addUpNumbers() {
-  //   let total = 0;
-  //   for (const num of arguments) {
-  //     total += num;
-  //   }
-  //   console.log(total);
-  //   return total;
-  // }
+  for (const [i, cut] of cuts.entries()) {
+    console.log(`${cut} is the ${i + 1} item`);
+  }
+  // we can destructure!
+  // since its an array, we can desturcture into their own variables
+  // you dont have to think, you can just always use this one
+  // EXCEPT FOR OBJECTS!
 
-  // addUpNumbers(10,23,52,34,12,13,123);
+  function addUpNumbers() {
+    let total = 0;
+    for (const num of arguments) {
+      total += num;
+    }
+    console.log(total);
+    return total;
+  }
 
-  // const name = 'Wes Bos';
-  // for (const char of name) {
-  //   console.log(char);
-  // }
+  addUpNumbers(10,23,52,34,12,13,123);
+  // you have no idea how many numbers are gonna come through
+  // arguments is an array-ish, that gives all arguments passed into the function
+  // it looks like an array, but it's not actually an array - like the query selector
+  // a list with a length but it can be iterated in for of!
+  // I mean we could just make arguments an array and reduce, but for this case we can go ahead and just do it the function way
+
+  const name = 'Wes Bos';
+  for (const char of name) {
+    console.log(char);
+  }
+
+  // a string, we can get the characters
 
   const ps = document.querySelectorAll('p');
   for (const paragraph of ps) {
@@ -44,6 +60,9 @@
       console.log(this.textContent);
     });
   }
+
+  // loop over dom collections without an array - like above
+  // again can convert to array, but is helpful to know
 
 </script>
 </body>

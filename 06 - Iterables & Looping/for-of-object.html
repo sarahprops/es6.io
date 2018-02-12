@@ -19,6 +19,18 @@
     console.log(value, prop);
   }
 
+  // objects are not iterables / cannot iterate object
+  // so what can we do? we can do .entries
+  // will be included in ES2017
+  // alternatives:
+  for (const prop of Object.keys(apple)) {
+    const value = apple[prop];
+    console.log(value, prop);
+  }
+  // returns an array of all of the keys
+  // not the bet but will work
+  // can use for in
+
 </script>
 </body>
 </html>
