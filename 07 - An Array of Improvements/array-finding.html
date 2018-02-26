@@ -183,6 +183,28 @@
   const postIndex = posts.findIndex(post => post.code === code);
   console.log(postIndex);
 
+  /*
+    .find() is best for when you get data back from an api and we want to find the object inside of an array
+    posts.ID or posts[id] since there are no keys
+    const posts = posts.find() which returns true/false over everything until found
+    const post = posts.find(post => {
+        console.log(post.code);
+        general shape
+        if post.code = ours {
+            true
+        }
+    })
+
+    if you want to find multiple use .filter()
+
+    next is findIndex is when you have the item, but you want to find where it is in the array of data
+    for example if you need to delete something from the array based on the ID
+    const postIndex = posts.findIndex((post) => {
+        if post.code = code
+            true
+    })
+  */
+
 </script>
 </body>
 </html>
