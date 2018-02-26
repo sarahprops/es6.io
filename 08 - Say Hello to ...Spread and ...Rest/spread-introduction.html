@@ -7,6 +7,19 @@
 <body>
 <script>
 
+  /*
+    spread '...' takes all of the items in an iterable and apply to it to the containing element
+    lets say we have featured & specialty, then we make a pizzas, and tada
+    we can spread it into a new array
+
+    [...'wes'] = ['w', 'e', 's'];
+
+    if you wanted to copy an array you could do
+    fridayPizzas = pizzas, but if you change fridayPizzas at all, you change the OG array as well. before you could [].concat but thats weird
+    so instead you take a new array and spread the old array into it
+    TADA
+  */
+
   const featured = ['Deep Dish', 'Pepperoni', 'Hawaiian'];
   const specialty = ['Meatzza', 'Spicy Mama', 'Margherita'];
 
