@@ -11,8 +11,13 @@
     <p>Randy</p>
   </div>
 <script>
+  // document query selector is not actual an array, therefore you cannot map it
+  // so you have to turn it into an array first, then you can map it
+  // Array.from is prefered
+  // or can use a spread but its a bit confusing [...document.querySelectorAll]
   const people = Array.from(document.querySelectorAll('.people p'));
   const names = people.map((person) => person.textContent );
+
 
   const deepDish = {
     pizzaName: 'Deep Dish',
@@ -20,18 +25,30 @@
     ingredients: ['Marinara', 'Italian Sausage', 'Dough', 'Cheese']
   };
 
+  // so we know we need milk and flour, but tonight is deep dish night so we need that stuff too
+  // and then it's all in our shopping list!
   const shoppingList = ['Milk', 'Flour', ...deepDish.ingredients];
   // console.log(shoppingList);
 
+  // when you have an array and you need to remove one from the array
+  // all you are given is ID
   const comments = [
     { id: 209384, text: 'I love your dog!' },
     { id: 523423, text: 'Cuuute! 🐐' },
     { id: 632429, text: 'You are so dumb' },
     { id: 192834, text: 'Nice work on this wes!' },
   ];
+  // MEAN OL COMMENT
   const id = 632429;
+  // where is this comment in this array?
   const commentIndex = comments.findIndex(comment => comment.id === id);
-
+  // how do I delete it? what we can do is create a new variable
+  // and set it everything before the mean comment
+  // and everything after the mean comment
+  // slice to it, and slice after it
+  // without spread we get an array of arrays
+  // NEED THE SPREEEAAADDDDDD
+  // so when you spread them, it takes every item out and into a new array
   const newComments = [...comments.slice(0,commentIndex), ...comments.slice(commentIndex + 1)];
   console.log(newComments);
 

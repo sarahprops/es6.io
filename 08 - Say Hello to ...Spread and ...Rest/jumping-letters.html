@@ -27,10 +27,25 @@
   </style>
 </head>
 <body>
-  <h2 class="jump">SPREADS!</h2>
+  <!-- since spaces aren't mapped as items, for spacing we need the literal  -->
+  <h2 class="jump">SPREADS!&nbsp;A&nbsp;LOT!</h2>
 
 <script>
-  
+  /* use map, spread, and queryselector all to make */
+
+  // get our word
+  const word = document.querySelector('.jump');
+
+  // we want to take a word, regardless of letters
+  // map each item with a span
+  // then stick em back together
+  function textWrap(word) {
+    return [...word].map(letter => `<span>${letter}</span>`).join('');
+  }
+
+  // make it JUMP
+  word.innerHTML = textWrap(word.textContent);
+
 </script>
 </body>
 </html>
