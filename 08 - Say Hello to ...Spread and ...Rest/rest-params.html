@@ -6,6 +6,16 @@
 </head>
 <body>
 <script>
+  // ... could also be rest, it takes one thing an unpacks it into multiple
+  // rest does the opposite - takes multiple things and makes it one
+
+  // so we don't know how many amonts that are coming in, the rest are the amounts
+  // captures everything else in an array
+  // is a true array
+  // function convertCurrency(rate, ...amounts) {
+  //   console.log(rate, amounts);
+  // }
+
   // function convertCurrency(rate, tax, tip, ...amounts) {
   //   console.log(rate, tax, tip, amounts);
   //   return amounts.map(amount => amount * rate);
@@ -14,7 +24,10 @@
   // const amounts = convertCurrency(1.54, 10, 23, 52, 1, 56);
   // console.log(amounts);
 
+  // next is for desturturing
+  // name, id, then km's ran
   const runner = ['Wes Bos', 123, 5.5, 5, 3, 6, 35];
+  // assuming first is name, then id, then REST ahA
   const [name, id, ...runs] = runner;
   console.log(name, id, runs);
 

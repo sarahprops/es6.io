@@ -6,10 +6,15 @@
 </head>
 <body>
 <script>
+  // the more practical stuff
+  // we have vars with stuff and we want to make an object with it
   const first = 'snickers';
   const last = 'bos';
   const age = 2;
   const breed = 'King Charles Cav';
+  // but they are the same as the variables so last:last?
+  // if property name and variable are the same thing don't need to repeat
+  // but can be mixed
   const dog = {
     firstName: first,
     last,
@@ -19,6 +24,11 @@
   };
   console.log(dog);
 
+  // when have method definitions inside an object
+  // instead of having to do create: function() {}
+  // you can leave out function and colon so create() {}
+  // no weirdness with this or anything, because its a new shorthand
+  // and it takes params as normal
   const modal = {
     create(selector) {
 
@@ -31,21 +41,34 @@
     }
   }
 
+  // computer property names
+  // a less common one
+  // a key that needs to be set on an object
   function invertColor(color) {
       return '#' + ("000000" + (0xFFFFFF ^ parseInt(color.substring(1),16)).toString(16)).slice(-6);
   }
 
+  // use these to set object items
   const key = 'pocketColor';
   const value = '#ffc600';
 
   const tShirt = {
+    // object literal here
     [key]: value,
+    // what if we want the opposite???
+    // pocketColorOpposite: function return value
     [`${key}Opposite`]: invertColor(value)
   };
 
+  // sometimes you get some funky weirdo data
+  // you need to make an object that matches them up
   const keys = ['size', 'color', 'weight'];
   const values = ['medium', 'red', 100];
 
+  // can do keys[0]: etc
+  // woah!! .shift()
+  // we plucked off one from the array
+  // could have looped then added to the object
   const shirt = {
     [keys.shift()]: values.shift(),
     [keys.shift()]: values.shift(),
